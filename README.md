@@ -28,3 +28,9 @@ Options for the Logger constructor are passed as an object:
 | logToFile | Whether or not log messages should also be saved to a file. | false |
 | logFilePath | The file path to the file log messages should be added to. | log.log (In script dir.) |
 | silent | If true, all logs are supressed. | false |
+
+As an example:
+
+```
+myLogger := new logger({levelsToLog: ["error", "warn"], showTimestamp: true})
+```
