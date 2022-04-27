@@ -12,7 +12,7 @@ myLogger.log("Hello World!")
 
 # Options
 
-Both the Logger constructor and the log method both have options that can be passed to them.
+Both the Logger constructor and the log method have options that can be passed to them.
 
 Options for the Logger constructor are passed as an object:
 
