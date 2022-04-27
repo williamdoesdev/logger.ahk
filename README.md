@@ -34,3 +34,42 @@ As an example:
 ```
 myLogger := new logger({levelsToLog: ["error", "warn"], showTimestamp: true})
 ```
+
+The log method also accepts three options. These can be passed either as an object, or as separate arguments.
+
+| Option | Description | Default |
+| --- | --- | --- |
+| message | The message to be logged |  |
+| level | The log level to use | "debug" |
+| exception | Whether or not an exception should be thrown | false |
+
+Example:
+
+```
+myLogger.log({level: "error", message: "test error", exception: true})
+
+myLogger.log("test warning", "warn", false)
+```
+
+# Log Levels
+
+Valid log levels include:
+
+| Level |
+| --- |
+| error |
+| warn |
+| info |
+| verbose |
+| debug |
+| silly |
+
+# Clear
+
+The clear method clears the log.
+
+Example:
+
+```
+myLogger.clear()
+```
