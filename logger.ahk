@@ -1,5 +1,5 @@
 ﻿class Logger{
-    options := {showLevel: true, showTimestamp: false, timestampFormat: "MM/dd/yy hh:mm", logToFile: false, pauseOnError: false, exitOnError: false, exceptionOnError: false, silent: false, logToFile: false, logFilePath: A_ScriptDir . "\log.log", levelsToLog: ["error", "warn", "info", "verbose", "debug", "silly"]}
+    options := {showLevel: true, showTimestamp: false, timestampFormat: "MM/dd/yy hh:mm", logToFile: false, pauseOnError: false, exitOnError: false, exceptionOnError: false, silent: false, logToFile: false, logFilePath: A_ScriptDir . "\log.log", levelsToLog: ["error", "warn", "info", "verbose", "debug", "test", "silly"]}
 
     __New(options){
         if(IsObject(options) = 1){
@@ -121,7 +121,7 @@
 
     ;validate log level
     validateLevel(level){
-        if(level = "error" || level = "warn" || level = "info" || level = "verbose" || level = "debug" || level = "silly"){
+        if(level = "error" || level = "warn" || level = "info" || level = "verbose" || level = "debug" || level = "test" || level = "silly"){
             return level
         }else{
             Throw Exception(level . " is not a valid log level.", -2)

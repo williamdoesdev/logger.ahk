@@ -62,6 +62,7 @@ Valid log levels include:
 | info |
 | verbose |
 | debug |
+| test |
 | silly |
 
 # Clear
