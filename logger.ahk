@@ -2,10 +2,12 @@
     options := {showLevel: true, showTimestamp: false, timestampFormat: "MM/dd/yy hh:mm", logToFile: false, pauseOnError: false, exitOnError: false, exceptionOnError: false, silent: false, logToFile: false, logFilePath: A_ScriptDir . "\log.log", levelsToLog: ["error", "warn", "info", "verbose", "debug", "silly"]}
 
     __New(options){
-        for key, value in this.validateOptions(options)
-		{
-			this.options[key] := value
-		}
+        if(IsObject(options) = 1){
+            for key, value in this.validateOptions(options)
+            {
+                this.options[key] := value
+            }
+        }
     }
 
     log(params*){

@@ -1,6 +1,6 @@
 ﻿#Include logger.ahk
 
-myLogger := new logger({showTimestamp: true})
+myLogger := new logger
 
 myLogger.log("Hello world!")
 
