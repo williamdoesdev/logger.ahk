@@ -2,7 +2,7 @@
     options := {showLevel: true, showTimestamp: false, timestampFormat: "MM/dd/yy hh:mm", logToFile: false, pauseOnError: false, exitOnError: false, exceptionOnError: false, silent: false, logToFile: false, logFilePath: A_ScriptDir . "\log.log", levelsToLog: ["error", "warn", "info", "verbose", "debug", "silly"]}
 
     __New(options){
-        for key, value in options
+        for key, value in this.validateOptions(options)
 		{
 			this.options[key] := value
 		}
@@ -16,7 +16,7 @@
 
         logOptions := {}
         if(IsObject(params[1]) = true){
-            logOptions := params[1]
+            logOptions := this.validateLogOptions(params[1])
         }else{
             logOptions.message := params[1]
             if(params[2]){
@@ -84,16 +84,45 @@
         ControlSetText Edit1, , ahk_id %A_ScriptHwnd%
     }
 
-    ;TODO: validate options
+    ;validate options
+    validateOptions(options){
+        for key, value in options{
+            matchingKeyFound := 0
+            for ley, lalue in this.options{
+                if(key = ley){
+                    matchingKeyFound := 1
+                }
+            }
+            if(matchingKeyFound = 0){
+                Throw Exception(key . " is not a valid option.", -2)
+            }
+        }
+        return options
+    }
 
-    ;TODO: validate log options
+    ;validate log options
+    validateLogOptions(options){
+        validOptions := ["message", "level", "exception"]
+        for key, value in options{
+            matchingKeyFound := 0
+            for i, element in validOptions{
+                if(key = element){
+                    matchingKeyFound := 1
+                }
+            }
+            if(matchingKeyFound = 0){
+                Throw Exception(key . " is not a valid option.", -2)
+            }
+        }
+        return options
+    }
 
     ;validate log level
     validateLevel(level){
         if(level = "error" || level = "warn" || level = "info" || level = "verbose" || level = "debug" || level = "silly"){
             return level
         }else{
-            Throw Exception(level . " is not a valid log level.")
+            Throw Exception(level . " is not a valid log level.", -2)
         }
     }
 

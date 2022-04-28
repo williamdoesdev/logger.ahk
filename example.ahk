@@ -6,4 +6,4 @@ myLogger.log("Hello world!")
 
 myLogger.log({level: "error", message: "Test error"})
 
-myLogger.log({level: "error", message: "Test exception", exception: true})
+msgbox
