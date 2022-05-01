@@ -1,5 +1,5 @@
 # Logger.ahk
-A simple debug log for AutoHotKey using the ListVars window.
+A simple debug log for AutoHotKey which uses the ListVars window.
 
 # Usage
 The intended way of using Logger is by creating a new Logger instance. The log method of this object can then be called to send a message to the log.
