@@ -96,7 +96,7 @@
                 }
             }
             if(matchingKeyFound = 0){
-                Throw Exception(key . " is not a valid option.", -2)
+                Throw Exception(key . " is not a valid option.", -1)
             }
         }
         return options
@@ -113,7 +113,7 @@
                 }
             }
             if(matchingKeyFound = 0){
-                Throw Exception(key . " is not a valid option.", -2)
+                Throw Exception(key . " is not a valid option.", -1)
             }
         }
         return options
@@ -124,7 +124,7 @@
         if(level = "error" || level = "warn" || level = "info" || level = "verbose" || level = "debug" || level = "test" || level = "silly"){
             return level
         }else{
-            Throw Exception(level . " is not a valid log level.", -2)
+            Throw Exception(level . " is not a valid log level.", -1)
         }
     }
 
